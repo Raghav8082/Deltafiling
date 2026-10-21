@@ -116,3 +116,4 @@ class Finding(Base):
     evidence = Column(String, nullable=True)
 
     filing = relationship("Filings", back_populates="findings")
+
