@@ -42,12 +42,12 @@ async def load_companies(session: AsyncSession, chunk_size: int = 1000) -> int:
 
 
 
-# async def main():
-#     async with AsyncSessionLocal() as session:
-#         count = await load_companies(session)
-#         print(f"{count} companies loaded")
-#         res = await session.execute(select(Company).where(Company.ticker == "AAPL"))
-#         apple = res.scalar_one()
-#         print(f"Verified Apple: CIK={apple.cik}, Name={apple.company_name}")
-# if __name__ == "__main__":
-#     asyncio.run(main())
+async def main():
+    async with AsyncSessionLocal() as session:
+        count = await load_companies(session)
+        print(f"{count} companies loaded")
+        res = await session.execute(select(Company).where(Company.ticker == "MSFT"))
+        Microsoft = res.scalar_one()
+        print(f"Verified Microsoft: CIK={Microsoft.cik}, Name={Microsoft.company_name}")
+if __name__ == "__main__":
+    asyncio.run(main())

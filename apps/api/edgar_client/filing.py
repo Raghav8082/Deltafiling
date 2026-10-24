@@ -83,19 +83,19 @@ async def fetch_filings(session: AsyncSession, ticker: str, include_older: bool 
 
 
 # --- TEST TRIGGER BLOCK ---
-# async def main():
-#     async with AsyncSessionLocal() as session:
-#         # Test with AAPL (already in DB)
-#         count = await fetch_filings(session, "AAPL")
-#         print(f"Successfully loaded {count} filings for AAPL")
+async def main():
+    async with AsyncSessionLocal() as session:
+        # Test with AAPL (already in DB)
+        count = await fetch_filings(session, "MSFT")
+        print(f"Successfully loaded {count} filings for MSFT")
 
-#         # Verify query from database
-#         res = await session.execute(
-#             select(Filings).limit(3)
-#         )
-#         filings = res.scalars().all()
-#         for f in filings:
-#             print(f"Stored Filing: {f.form_type} on {f.filing_date} (Accession: {f.accession_number})")
+        # Verify query from database
+        res = await session.execute(
+            select(Filings).limit(3)
+        )
+        filings = res.scalars().all()
+        for f in filings:
+            print(f"Stored Filing: {f.form_type} on {f.filing_date} (Accession: {f.accession_number})")
 
-# if __name__ == "__main__":
-#     asyncio.run(main())
+if __name__ == "__main__":
+    asyncio.run(main())

@@ -32,13 +32,13 @@ async def run_backfill(tickers: list[str]):
                 print(f"{ticker}: FAILED ({e})")
 
 
-# def main():
-#     parser = argparse.ArgumentParser(description="Backfill recent filings")
-#     parser.add_argument("tickers", nargs="+", help="e.g. AAPL MSFT TSLA")
-#     args = parser.parse_args()
+def main():
+    parser = argparse.ArgumentParser(description="Backfill recent filings")
+    parser.add_argument("tickers", nargs="+", help="e.g. AAPL MSFT TSLA")
+    args = parser.parse_args()
 
-#     asyncio.run(run_backfill(args.tickers))
+    asyncio.run(run_backfill(args.tickers))
 
 
-# if __name__ == "__main__":
-#     main()
+if __name__ == "__main__":
+    main()
