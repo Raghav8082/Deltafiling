@@ -13,7 +13,7 @@ class Company(Base):
 
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid4)
     ticker = Column(String, unique=True, nullable=False)
-    company_name = Column(String, unique=True, nullable=False)
+    company_name = Column(String, nullable=False)
     cik = Column(String, unique=True, nullable=False)
     last_polled = Column(TIMESTAMP, nullable=True)
 
